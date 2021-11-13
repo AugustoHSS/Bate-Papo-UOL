@@ -5,14 +5,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <title>Bate-Papo UOL</title>
 </head>
 
 <body>
+    <div class="tela-cadastro display-none">
+        <img src="imagens/logoCadastro.png">
+        <input type="text" placeholder="Digite seu nome">
+        <div class="botao-cadastro" onclick="cadastrarUsiario()">
+            Entrar
+        </div>
+    </div>
 
+
+
+    <header>
+        <img src="imagens/logo.png">
+        <ion-icon name="people-sharp"></ion-icon>
+    </header>
+
+    <main>
+        <div class="mensagem" data-identifier="message">
+
+        </div>
+    </main>
+
+    <footer class="mandar-mensagens">
+        <input type="text" placeholder="Escreva aqui...">
+        <ion-icon name="paper-plane-outline" onclick="enviarMensagem()" data-identifier="send-message"></ion-icon>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 </body>
 
 </html>

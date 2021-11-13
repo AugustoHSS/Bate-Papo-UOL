@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #F3F3F3;
+    font-family: Roboto;
+}
+
+header {
+    position: fixed;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px 0 25px;
+}
+
+header img {
+    height: 53px;
+}
+
+ion-icon {
+    font-size: 45px;
+}
+
+.mandar-mensagens {
+    position: fixed;
+    height: 80px;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px 0 15px;
+}
+
+.mandar-mensagens ion-icon {
+    font-size: 30px;
+}
+
+footer input {
+    height: 60px;
+    border: none;
+    outline: 0;
+    font-size: 18px;
+    color: #000000;
+}
+
+footer input::placeholder {
+    color: #000000;
+    font-style: italic;
+}
+
+main {
+    padding-top: 106px;
+}
+
+.mensagem {
+    min-height: 40px;
+    background: #FFFFFF;
+}
+
+.tela-cadastro img {
+    height: 92px;
+    width: 130px;
+    margin: 25% 0 95px 0;
+}
+
+.tela-cadastro input {
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+    height: 54px;
+    width: 261px;
+    text-align: center;
+    font-size: 18px;
+    color: #AEAEAE;
+}
+
+.tela-cadastro input::placeholder {
+    color: #AEAEAE;
+}
+
+.tela-cadastro {
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botao-cadastro {
+    margin-top: 15px;
+    background: #E7E7E7;
+    border-radius: 9px;
+    width: 109px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display-none {
+    display: none;
+}
