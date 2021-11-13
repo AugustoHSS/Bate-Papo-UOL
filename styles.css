@@ -58,7 +58,7 @@ footer input::placeholder {
 }
 
 main {
-    padding-top: 106px;
+    padding: 106px 0 106px 0;
 }
 
 .mensagem {
@@ -110,4 +110,32 @@ main {
 
 .display-none {
     display: none;
+}
+
+.mensagem {
+    width: 100%;
+    min-height: 40px;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    padding-left: 2%;
+    word-break: break-all;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.status {
+    background: #DCDCDC;
+}
+
+.message {
+    background: #ffffff;
+}
+
+.private {
+    background: #FFDEDE;
+}
+
+p {
+    max-width: 98%;
 }
