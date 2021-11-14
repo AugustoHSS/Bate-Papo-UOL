@@ -27,7 +27,7 @@ ion-icon {
     font-size: 45px;
 }
 
-.mandar-mensagens {
+.mandar-mensagem {
     position: fixed;
     height: 80px;
     width: 100%;
@@ -75,6 +75,7 @@ main {
 .tela-cadastro input {
     border: 1px solid #D7D7D7;
     border-radius: 4px;
+    outline: 0;
     height: 54px;
     width: 261px;
     text-align: center;
@@ -138,4 +139,8 @@ main {
 
 p {
     max-width: 98%;
+}
+
+.botao-cadastro-liberado {
+    background: #D5972F;
 }
