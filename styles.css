@@ -109,10 +109,6 @@ main {
     align-items: center;
 }
 
-.display-none {
-    display: none;
-}
-
 .mensagem {
     width: 100%;
     min-height: 40px;
@@ -120,7 +116,7 @@ main {
     display: flex;
     align-items: center;
     padding-left: 2%;
-    word-break: break-all;
+    word-break: break-word;
     font-size: 14px;
     line-height: 20px;
 }
@@ -143,4 +139,89 @@ p {
 
 .botao-cadastro-liberado {
     background: #D5972F;
+}
+
+.fundo-transparente {
+    background: rgba(0, 0, 0, 0.6);
+    width: 30%;
+    height: 100%;
+}
+
+.container-sidebar {
+    display: flex;
+    position: fixed;
+    z-index: 60;
+    height: 100%;
+    width: 100%;
+}
+
+.sidebar {
+    padding-top: 10%;
+    background: #ffffff;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+}
+
+.sidebar p {
+    margin-left: 8px;
+}
+
+.participante {
+    display: flex;
+    align-items: center;
+    margin: 0 8px 19px 18px;
+}
+
+.sidebar h1 {
+    margin: 22px 0 22px 0;
+}
+
+.privado,
+.publico {
+    width: 100%;
+    display: flex;
+    padding: 0 8px 19px 18px;
+    margin-bottom: 1px;
+}
+
+.publico p,
+.privado p {
+    padding-top: 4px;
+}
+
+.sidebar ion-icon {
+    font-size: 22px;
+}
+
+.participantes-online {
+    width: 100%;
+}
+
+.loading {
+    position: fixed;
+}
+
+.loading img {
+    margin-top: 200px;
+    width: 441px;
+    height: 291px;
+}
+
+.loading p {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 40%;
+    font-size: 25px;
+    z-index: 50;
+}
+
+.display-none {
+    display: none;
 }

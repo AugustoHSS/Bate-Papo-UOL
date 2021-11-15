@@ -14,9 +14,38 @@
 <body>
     <div class="tela-cadastro">
         <img src="imagens/logoCadastro.png">
-        <input type="text" placeholder="Digite seu nome">
-        <div class="botao-cadastro" onclick="cadastrarUsuario()">
+        <input type="text" placeholder="Digite seu nome" data-identifier="enter-name">
+        <div class="botao-cadastro" onclick="cadastrarUsuario()" data-identifier="start">
             Entrar
+        </div>
+        <div class="loading display-none">
+            <img src="imagens/loading.gif">
+            <p><strong>Entrando...</strong></p>
+        </div>
+    </div>
+    <div class="container-sidebar display-none">
+        <div class="fundo-transparente" onclick="fecharSideBar()">
+
+        </div>
+        <div class="sidebar">
+            <h1><strong>Escolha um contato<br>para enviar mensagem:</strong></h1>
+            <div class="participantes-online">
+                <div class="participante">
+                    <ion-icon name="people"></ion-icon>
+                    <p>Todos</p>
+                </div>
+
+
+            </div>
+            <h1><strong>Escolha a visibilidade:</strong></h1>
+            <div class="publico">
+                <ion-icon name="lock-open"></ion-icon>
+                <p>Público</p>
+            </div>
+            <div class="privado">
+                <ion-icon name="lock-closed"></ion-icon>
+                <p>Reservadamente</p>
+            </div>
         </div>
     </div>
 
@@ -24,7 +53,7 @@
 
     <header>
         <img src="imagens/logo.png">
-        <ion-icon name="people-sharp"></ion-icon>
+        <ion-icon name="people-sharp" onclick="abrirSideBar()"></ion-icon>
     </header>
 
     <main class="local-mensagens">
@@ -32,8 +61,8 @@
     </main>
 
     <footer class="mandar-mensagem">
-        <input type="text" placeholder="Escreva aqui...">
-        <ion-icon name="paper-plane-outline" onclick="enviarMensagem()" data-identifier="send-message"></ion-icon>
+        <input type="text" placeholder="Escreva aqui..." id="texto-mensagem">
+        <ion-icon name="paper-plane-outline" onclick="enviarMensagem()" data-identifier="send-message" id="botao-enviar-mensagem"></ion-icon>
     </footer>
 
 

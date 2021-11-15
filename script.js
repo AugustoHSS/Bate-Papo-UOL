@@ -1,5 +1,27 @@
 let usuario;
-let usuariosOnline;
+let executarFuncaoUmaVez = true;
+let todosUsuarios = [];
+let usuariosNovos;
+
+
+
+document.getElementById("texto-mensagem").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("botao-enviar-mensagem").click();
+    }
+});
+
+function abrirSideBar() {
+    const sidebar = document.querySelector(".container-sidebar")
+    sidebar.classList.remove("display-none")
+
+}
+
+function fecharSideBar() {
+    const sidebar = document.querySelector(".container-sidebar")
+    sidebar.classList.add("display-none")
+}
 
 function enviarMensagem() {
     let textoMensagem = document.querySelector(".mandar-mensagem input").value;
@@ -12,8 +34,15 @@ function enviarMensagem() {
     }
 
     const promessa = axios.post("https://mock-api.driven.com.br/api/v4/uol/messages", mensagem)
+    document.querySelector(".mandar-mensagem input").value = ""
     promessa.then(carregarMensagens)
+    promessa.catch(recarregarPagina)
 
+}
+
+function recarregarPagina() {
+    window.location.reload()
+    alert("Página foi recarregada pois voce estava offline")
 }
 
 function botaoCadastro() {
@@ -32,6 +61,7 @@ function cadastrarUsuario() {
 
     if (document.querySelector(".tela-cadastro input").value != "") {
         const requisicao = axios.post("https://mock-api.driven.com.br/api/v4/uol/participants", { name: document.querySelector(".tela-cadastro input").value });
+        document.querySelector(".loading").classList.remove("display-none");
         requisicao.catch(tratarErro);
         requisicao.then(tratarSucesso);
 
@@ -39,6 +69,7 @@ function cadastrarUsuario() {
 }
 
 function tratarErro() {
+    document.querySelector(".loading").classList.add("display-none");
     alert("Nome de usuário já está em uso")
 }
 
@@ -97,24 +128,80 @@ function processarRespostaMensagens(resposta) {
 
 function testaUsuarioPresente() {
     const promessa = axios.post("https://mock-api.driven.com.br/api/v4/uol/status", { name: usuario })
-    promessa.catch(erroDeConexao)
-}
 
-function erroDeConexao(erro) {
-    alert("Você foi desconectado do chat!")
-    console.log("erro foi " + erro.data)
 }
 
 function usuariosAtivos() {
     const promessa = axios.get("https://mock-api.driven.com.br/api/v4/uol/participants")
-    promessa.then(pegarUsuarios)
+    promessa.then(colocarUsuariosAtivos)
 }
 
-function pegarUsuarios(usuarios) {
-    usuariosOnline = usuarios.data
 
+
+function colocarUsuariosAtivos(usuarios) {
+
+
+    const localDosUsuariosOnline = document.querySelector(".participantes-online");
+    localDosUsuariosOnline.innerHTML = ""
+    usuariosNovos = usuarios.data
+
+    if (executarFuncaoUmaVez) {
+        for (let i = 0; i < usuariosNovos.length; i++) {
+            localDosUsuariosOnline.innerHTML += `
+            <div class="participante" id="${usuariosNovos[i].name}">
+                <ion-icon name="person-circle"></ion-icon>
+                <p>${usuariosNovos[i].name}</p>
+            </div>
+    
+            `
+        }
+
+
+    }
+
+    /*
+        for (let i = 0; i < usuariosNovos.length; i++) {
+
+            for (let j = 0; j < todosUsuarios.length; j++) {
+                if (usuariosNovos[i].name === todosUsuarios[j].name) {
+                    break;
+                } else {
+                    if (j == todosUsuarios.length - 1) {
+                        localDosUsuariosOnline.innerHTML += `
+                        <div class="participante" id="${usuariosNovos[i].name}">
+                            <ion-icon name="person-circle"></ion-icon>
+                            <p>${usuariosNovos[i].name}</p>
+                        </div>
+                
+                        `
+                    }
+                }
+
+            }
+
+        }
+
+        for (let i = 0; i < todosUsuarios.length; i++) {
+            for (let j = 0; j < usuariosNovos.length; j++) {
+                if (todosUsuarios[i].name === usuariosNovos[j].name) {
+
+                    break;
+                } else {
+                    if (j === usuariosNovos.length - 1) {
+                        let usuarioId = todosUsuarios[i].name;
+                        console.log(usuarioId)
+
+                        localDosUsuariosOnline.removeChild(document.getElementById(parseInt(usuarioId)));
+
+                    }
+                }
+
+            }
+
+        }
+        todosUsuarios = usuariosNovos
+    */
 }
-
 
 
 carregarMensagens();
